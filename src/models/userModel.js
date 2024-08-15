@@ -1,7 +1,13 @@
-const { mongoose } = require("mongoose");
+const { mongoose, get } = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-    fullname: {
+    name: {
+        type: String,
+    },
+    givenName: {
+        type: String,
+    },
+    familyName: {
         type: String,
     },
     email: {
@@ -12,14 +18,15 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    photoUrl: {
+    photo: {
         type: String,
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: Date.now(),
+        immutable: true,
     },
-    updateAt: {
+    updatedAt: {
         type: Date,
         default: Date.now(),
     }
